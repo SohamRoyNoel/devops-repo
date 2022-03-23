@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install: 
+  - docker build -t noelroy/devops-repo -f Dockerfile.dev .
+
+script: 
+  - docker run noelroy/devops-repo npm run test -- --coverage
+
